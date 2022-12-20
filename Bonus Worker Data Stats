@@ -1,0 +1,13 @@
+SELECT 
+  Round( AVG(Duration__in_seconds_), 2) AS Average_Duration,
+  Round( AVG(Word_count), 2) AS Average_Word_Count,
+  Round( AVG(Quality_Typo), 2) AS Average_Typos,
+  Round( AVG(Quality_Grammar), 2) AS Average_Grammaritcal_Errors,
+  Round( AVG(Confidence_Best), 2) AS Average_Confidence,
+  SUM(Quality_Typo + Quality_Grammar) AS Total_Errors,
+  AVG(Quality_Typo + Quality_Grammar) AS Average_Total_Errors,
+  
+  
+  FROM `mturk-project-371419.responses.worker data`
+
+ Where Treatment = "bonus"
